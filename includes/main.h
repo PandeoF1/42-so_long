@@ -20,3 +20,12 @@ typedef struct so_long
 	void	*mlx;
 	void	*mlx_win;
 }				so_long;
+
+typedef struct map_check
+{
+    int     max_x;
+    int     max_y;
+	int		count_x;
+	int		x;
+	int		y;
+}				map_check;

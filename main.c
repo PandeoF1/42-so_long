@@ -20,14 +20,37 @@ int	ft_check_file(char *path) //Check si il faut bien des message de return
 
 int	ft_init_map(so_long *game, char *path) // leak ici
 {
-	char	*str;
-	int		fd;
-	int		ln;
+	map_check	*check;
+	char		str[4];
 
-	fd = open(path, O_RDONLY);
-	str = get_next_line(fd);
-	printf("%s", str);
-	close(fd);
+	check->max_y = 4;
+
+	dprintf(1, "\nmap :\n");
+	//ft_strlcpy(str[0], "1111011111", 11);
+	//ft_strlcpy(str[1], "1E00000001", 11);
+	//ft_strlcpy(str[2], "1PCCCCCCC1", 11);
+	//ft_strlcpy(str[3], "1111111111", 11);
+	//char	*str; //get_next_line ko in ubuntu
+	//fd = open(path, O_RDONLY);
+	//str = get_next_line(fd);
+	//printf("%s\n%s\n%s\n%s\n", str[0], str[1], str[2], str[3]);
+	/*check->max_x = 10;
+	check->y = 0;
+	while(check->y < check->max_y) //replace 4 par down max et 10 par x max
+	{
+		check->x = 0;
+		check->count_x = 0;
+		while (check->x < check->max_x)
+		{
+			if ((check->y == 0 || check->y == check->max_y) && str[check->y][check->x] == '1')
+				check->count_x++;
+			check->x++;
+		}
+		if ((check->y == 0 || check->y == check->max_y) && check->x != check->count_x)
+			return (0); //bordur haut et bas
+		check->y++;
+	}*/
+	//close(fd);
 	//free(str);
 	return (1);
 }
