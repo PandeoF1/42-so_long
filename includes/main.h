@@ -1,4 +1,4 @@
-#include <mlx.h>
+#include "../minilibx/mlx.h"
 #include <stdio.h>
 #include <fcntl.h>
 #include <stdlib.h>

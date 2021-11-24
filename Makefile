@@ -5,10 +5,10 @@ RST		= \033[0m
 
 SRCS		= main.c
 OBJS		= ${addprefix ./, ${SRCS:.c=.o}}
-GCC		= gcc
+GCC		= gcc 
 GCC_FLAGS	= -Wall -Wextra -Werror -fsanitize=address -fdiagnostics-color 
 LIBX		= -Lincludes \
-				-L./minilibx-linux -lmlx -Imlx \
+				-L./minilibx -lmlx -Imlx \
 				-lXext -lX11 -lz -lm
 NAME            = so_long
 

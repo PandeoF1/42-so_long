@@ -1,6 +1,6 @@
 #include "includes/main.h"
 #include "libft/libft.h"
-
+/*
 int	ft_print_err(char	*str)
 {
 	printf("Error.\n%s\n", str);
@@ -49,12 +49,12 @@ int	ft_init_map(so_long *game, char *path) // leak ici
 		if ((check->y == 0 || check->y == check->max_y) && check->x != check->count_x)
 			return (0); //bordur haut et bas
 		check->y++;
-	}*/
+	}
 	//close(fd);
 	//free(str);
 	return (1);
 }
-
+*//*
 int	main(int argc, char **argv)
 {
 	so_long *game;
@@ -71,7 +71,7 @@ int	main(int argc, char **argv)
 		printf("Error\n");
 	return(1);
 }
-
+*/
 /*
 int test(int a)
 {
@@ -108,7 +108,7 @@ void	ft_init_map(so_long *test)
 		y += test->picture_size;
 	}
 }
-
+*/
 void	ft_getmap(so_long *test)
 {
 	test->max_x = 500;
@@ -136,4 +136,4 @@ int	main(void)
 	ft_init_map(test);
 	dprintf(1, "fill map finish\n");
 	mlx_loop(mlx);
-}*/
+}
