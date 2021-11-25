@@ -30,10 +30,6 @@ typedef struct so_long
 	void	*player;
 	void	*exit;
 	void	*coin;
-	void	*background;
-	int		*background_data;
-	int		background_bpp;
-	int		background_endian;
 	void	*mlx;
 	void	*mlx_win;
 }				so_long;

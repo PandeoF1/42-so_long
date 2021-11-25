@@ -23,8 +23,8 @@ ${NAME}: ${OBJS}
 	@echo "\n\033[0;32mso_long compiled !\033[0m\n"
 
 mkdir:
-	@mkdir objs
-	@mkdir objs/utils
+	@mkdir -p objs
+	@mkdir -p objs/utils
 	@echo "${GRN}[MKDIR]${RST} done"
 
 clean:

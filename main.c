@@ -65,19 +65,21 @@ int	ft_init_map(so_long **game, char *path) // leak ici
 	map_check	*check;
 
 	check = malloc(sizeof(map_check));
-	(*game)->str = malloc(sizeof(char *) * 4);
+	(*game)->str = malloc(sizeof(char *) * 6);
 	(*game)->str[0] = malloc(sizeof(char) * 11);
 	(*game)->str[1] = malloc(sizeof(char) * 11);
 	(*game)->str[2] = malloc(sizeof(char) * 11);
 	(*game)->str[3] = malloc(sizeof(char) * 11);
+	(*game)->str[4] = malloc(sizeof(char) * 11);
 	if (!check)
 		return (0);
-	check->max_y = 4; //recup ca automatiquement
+	check->max_y = 5; //recup ca automatiquement
 	dprintf(1, "\nmap :\n");
 	ft_strlcpy((*game)->str[0], "1111111111", 11);
 	ft_strlcpy((*game)->str[1], "1EC0000001", 11);
 	ft_strlcpy((*game)->str[2], "1PCCCCCCC1", 11);
-	ft_strlcpy((*game)->str[3], "1111111111", 11);
+	ft_strlcpy((*game)->str[3], "1CCCCCC001", 11);
+	ft_strlcpy((*game)->str[4], "1111111101", 11);
 	//char	*str; //get_next_line ko in ubuntu
 	//fd = open(path, O_RDONLY);
 	//str = get_next_line(fd);
@@ -103,7 +105,28 @@ int	ft_init_map(so_long **game, char *path) // leak ici
 	}
 	(*game)->max_x = check->max_x;
 	(*game)->max_y = check->max_y;
+	free(check);
 	return (ft_push_map(&(*game), (*game)->str));
+}
+
+int	ft_close(so_long **game)
+{
+	int	x;
+
+	dprintf(1, "win\n");
+	mlx_destroy_image((*game)->mlx, (*game)->player);
+	mlx_destroy_image((*game)->mlx, (*game)->border);
+	mlx_destroy_image((*game)->mlx, (*game)->coin);
+	mlx_destroy_image((*game)->mlx, (*game)->exit);
+	mlx_destroy_window((*game)->mlx, (*game)->mlx_win);
+	//mlx_destroy_display((*game)->mlx);
+	mlx_loop_end((*game)->mlx);
+	x = 0;
+	while (x < (*game)->max_y)
+		free((*game)->str[x++]);
+	free((*game)->str);
+	free((*game)->mlx);
+	return (0);
 }
 
 void	ft_go(so_long **game, y, x)
@@ -122,7 +145,7 @@ void	ft_go(so_long **game, y, x)
 	else if ((*game)->str[(*game)->player_y + y][(*game)->player_x + x] == 'E')
 	{
 		if ((*game)->coin_count == 0)
-			dprintf(1, "win\n");
+			ft_close(&(*game));
 		else
 			dprintf(1, "Il te manque des pieces\n");
 	}
@@ -173,9 +196,15 @@ int	main(int argc, char **argv)
 			mlx_key_hook(game->mlx_win, ft_win_event, &game);
 			mlx_loop(game->mlx);
 		}
+		else
+			printf("Error\n");
 	}
 	else
 		printf("Error\n");
+	fd = 0;
+	while (fd < (game)->max_y) //ici il faut recup le max_y meme avec un return 0
+		free((game)->str[fd++]);
+	free(game);
 	return (1);
 }
 
