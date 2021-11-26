@@ -2,6 +2,7 @@
     "files.associations": {
         "mlx.h": "c",
         "stdio.h": "c",
-        "sstream": "c"
+        "sstream": "c",
+        "main.h": "c"
     }
 }

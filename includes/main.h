@@ -10,11 +10,17 @@
 # define event_s 115
 # define event_d 100
 
-int test(int a);
-char *ft_strrchr(const char *s, int c);
-unsigned int ft_strlcpy(char *dest, char *src, unsigned int size);
-int	ft_strcmp(char *s1, char *s2);
-int	ft_strlen(char *str);
+char 			*ft_strrchr(const char *s, int c);
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
+int				ft_strcmp(char *s1, char *s2);
+int				ft_strlen(char *str);
+
+int				ft_check_file(char *path);
+//int				ft_push_map(so_long **game, char **str);
+int				ft_win_event(int keycode, so_long **game);
+int				ft_close(so_long **game);
+int				ft_init_map(so_long **game, char *path);
+
 typedef struct so_long
 {
 	char	**str;

@@ -3,7 +3,7 @@ GRN			= \033[0;32m
 RED			= \033[0;31m
 RST			= \033[0m
 
-SRCS		= main.c utils/ft_strcmp.c utils/ft_strlcpy.c utils/ft_strrchr.c utils/ft_strlen.c
+SRCS		= main.c srcs/ft_check_file.c srcs/ft_close.c srcs/ft_event.c srcs/ft_init_map.c srcs/ft_strcmp.c srcs/ft_strlcpy.c srcs/ft_strrchr.c srcs/ft_strlen.c
 OBJS		= ${SRCS:.c=.o}
 GCC			= gcc
 GCC_FLAGS	= -Wall -Wextra /usr/X11/include-Werror #-fsanitize=address -fdiagnostics-color 
