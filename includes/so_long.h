@@ -25,6 +25,7 @@
 # define event_a 97
 # define event_s 115
 # define event_d 100
+# define event_esc 65307
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
@@ -66,6 +67,7 @@ int				ft_strlen(char *str);
 int				ft_check_file(char *path);
 int				ft_win_event(int keycode, so_long **game);
 int				ft_close(so_long **game);
+int				ft_exit_hook(so_long **game);
 int				ft_init_map(so_long **game, char *path);
 char			*ft_get_file(int fd, int size, int len);
 char			**ft_split_ln(char *str, char *charset, int *ln);

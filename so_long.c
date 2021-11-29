@@ -16,16 +16,15 @@ int	main(int argc, char **argv)
 			game->player_mouv = 0;
 			ft_printf("\n\ngg\n\n");
 			mlx_key_hook(game->mlx_win, ft_win_event, &game);
+			mlx_hook(game->mlx_win, 17, 1L << 17, ft_exit_hook, &game);
 			mlx_loop(game->mlx);
+			ft_close(&game);
 		}
 		else
 			ft_printf("Error\n");
 	}
 	else
 		ft_printf("Error\n");
-	fd = 0;
-	while (fd < (game)->max_y) //ici il faut recup le max_y meme avec un return 0
-		free((game)->str[fd++]);
 	free(game);
 	return (1);
 }

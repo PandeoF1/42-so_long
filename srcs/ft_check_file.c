@@ -18,7 +18,7 @@ static int	ft_print_err(char	*str)
 	return (0);
 }
 
-int	ft_check_file(char *path) //Check si il faut bien des message de return et rajouter des check pour le directory et tout le tralalala
+int	ft_check_file(char *path)
 {
 	char	*ext;
 	int		fd;
@@ -28,6 +28,6 @@ int	ft_check_file(char *path) //Check si il faut bien des message de return et r
 		return (0);
 	ext = ft_strrchr(path, '.');
 	if (ext == NULL || ft_strcmp(".ber", ext) != 0)
-		return(0);
+		return (0);
 	return (1);
 }

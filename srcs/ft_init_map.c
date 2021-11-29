@@ -21,22 +21,21 @@ static void	ft_open_map(so_long **game)
 	(*game)->coin = mlx_xpm_file_to_image((*game)->mlx, "./img/coin.xpm", &(*game)->picture_size , &(*game)->picture_size );
 }
 
-static int	ft_push_map(so_long **game, char **str) // TODO : peut etre fait une fonction put image pour baisser la taille de celle ci, check pour plusieur jouer / plusieur exit (si il faut check ca)
+static int	ft_push_map(so_long **game) // TODO : peut etre fait une fonction put image pour baisser la taille de celle ci, check pour plusieur jouer / plusieur exit (si il faut check ca)
 {
 	int	x;
 	int	y;
 
-	y = -1;
-	(*str) = NULL;// remove ca
+	y = 0;
 	(*game)->picture_size = (*game)->max_x;
 	(*game)->coin_count = 0;
 	(*game)->mlx = mlx_init();
 	(*game)->mlx_win = mlx_new_window((*game)->mlx, (*game)->max_x * (*game)->mult, (*game)->max_y * (*game)->mult, "test");
 	ft_open_map(&(*game));
-	while (++y * (*game)->mult < (*game)->max_y * (*game)->mult)
+	while (y * (*game)->mult < (*game)->max_y * (*game)->mult)
 	{
-		x = -1;
-		while (++x * (*game)->mult < (*game)->max_x * (*game)->mult)
+		x = 0;
+		while (x * (*game)->mult < (*game)->max_x * (*game)->mult)
 		{
 			if ((*game)->str[y][x] == '1')
 				mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win, (*game)->border, x * (*game)->mult, y * (*game)->mult);
@@ -53,7 +52,9 @@ static int	ft_push_map(so_long **game, char **str) // TODO : peut etre fait une 
 				(*game)->coin_count++;
 				mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win, (*game)->coin, x * (*game)->mult, y * (*game)->mult);
 			}
+			x++;
 		}
+		y++;
 	}
 	return (1);
 }
@@ -71,6 +72,7 @@ int	ft_init_map(so_long **game, char *path) // leak ici
 	ft_printf("str : %s, path : %s, 2\n", str, path);
 	(*game)->str = ft_split_ln(str, "\n", &check->max_y);
 	free(str);
+	close(fd);
 	ft_printf("ln : %i, 3\n", check->max_y);
 	//check->max_y = 5; //recup ca automatiquement
 	/*
@@ -115,5 +117,5 @@ int	ft_init_map(so_long **game, char *path) // leak ici
 	(*game)->max_x = check->max_x;
 	(*game)->max_y = check->max_y;
 	free(check);
-	return (ft_push_map(&(*game), (*game)->str));
+	return (ft_push_map(&(*game)));
 }
