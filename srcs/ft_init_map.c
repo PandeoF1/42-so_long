@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push_map.c                                      :+:      :+:    :+:   */
+/*   ft_init_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aviscogl <aviscogl@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 17:39:52 by aviscogl          #+#    #+#             */
-/*   Updated: 2021/11/26 17:39:52 by aviscogl         ###   ########lyon.fr   */
+/*   Updated: 2021/11/29 03:06:17 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/main.h"
+#include "../includes/so_long.h"
 
 static void	ft_open_map(so_long **game)
 {
@@ -27,6 +27,7 @@ static int	ft_push_map(so_long **game, char **str) // TODO : peut etre fait une 
 	int	y;
 
 	y = -1;
+	(*str) = NULL;// remove ca
 	(*game)->picture_size = (*game)->max_x;
 	(*game)->coin_count = 0;
 	(*game)->mlx = mlx_init();
@@ -60,8 +61,19 @@ static int	ft_push_map(so_long **game, char **str) // TODO : peut etre fait une 
 int	ft_init_map(so_long **game, char *path) // leak ici
 {
 	map_check	*check;
+	int			fd;
+	char		*str;
 
 	check = malloc(sizeof(map_check));
+	fd = open(path, O_RDONLY);
+	ft_printf("fd : %i, 1\n", fd);
+	str = ft_get_file(fd, 0 ,0);
+	ft_printf("str : %s, path : %s, 2\n", str, path);
+	(*game)->str = ft_split_ln(str, "\n", &check->max_y);
+	free(str);
+	ft_printf("ln : %i, 3\n", check->max_y);
+	//check->max_y = 5; //recup ca automatiquement
+	/*
 	(*game)->str = malloc(sizeof(char *) * 6);
 	(*game)->str[0] = malloc(sizeof(char) * 11);
 	(*game)->str[1] = malloc(sizeof(char) * 11);
@@ -71,16 +83,16 @@ int	ft_init_map(so_long **game, char *path) // leak ici
 	if (!check)
 		return (0);
 	check->max_y = 5; //recup ca automatiquement
-	dprintf(1, "\nmap :\n");
+	ft_printf("\nmap :\n");
 	ft_strlcpy((*game)->str[0], "1111111111", 11);
 	ft_strlcpy((*game)->str[1], "1EC0000001", 11);
 	ft_strlcpy((*game)->str[2], "1PCCCCCCC1", 11);
 	ft_strlcpy((*game)->str[3], "1CCCCCC001", 11);
-	ft_strlcpy((*game)->str[4], "1111111101", 11);
+	ft_strlcpy((*game)->str[4], "1111111111", 11);
 	//char	*str; //get_next_line ko in ubuntu
-	//fd = open(path, O_RDONLY);
-	//str = get_next_line(fd);
-	printf("%s\n%s\n%s\n%s\n\n", (*game)->str[0], (*game)->str[1], (*game)->str[2], (*game)->str[3]);
+	fd = open(path, O_RDONLY);
+	str = get_next_line(fd);*/
+	ft_printf("%s\n%s\n%s\n%s\n", (*game)->str[0], (*game)->str[1], (*game)->str[2], (*game)->str[3]);
 	check->max_x = ft_strlen((*game)->str[0]);
 	check->y = 0;
 	while(check->y < check->max_y)

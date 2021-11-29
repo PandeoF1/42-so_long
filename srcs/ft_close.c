@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_close.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aviscogl <aviscogl@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 17:49:08 by aviscogl          #+#    #+#             */
-/*   Updated: 2021/11/26 17:49:08 by aviscogl         ###   ########lyon.fr   */
+/*   Updated: 2021/11/29 03:01:42 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/main.h"
+#include "../includes/so_long.h"
 
-int	ft_close(so_long **game)
+int	ft_close(so_long **game) // Verif pour reste de malloc
 {
 	int	x;
 
-	dprintf(1, "win\n");
+	ft_printf("win\n");
 	mlx_destroy_image((*game)->mlx, (*game)->player);
 	mlx_destroy_image((*game)->mlx, (*game)->border);
 	mlx_destroy_image((*game)->mlx, (*game)->coin);

@@ -6,9 +6,11 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 10:51:33 by tnard             #+#    #+#             */
-/*   Updated: 2021/11/24 10:52:12 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/11/29 02:35:45 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../includes/so_long.h"
 
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
