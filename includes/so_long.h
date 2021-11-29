@@ -6,14 +6,14 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 02:38:07 by tnard             #+#    #+#             */
-/*   Updated: 2021/11/29 02:38:48 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/11/29 03:34:23 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../minilibx/mlx.h"
+# include "../mlbx/mlx.h"
 # include <stdio.h>
 # include <fcntl.h>
 # include <stdlib.h>
