@@ -47,7 +47,7 @@ static void ft_moov(so_long **game, int y, int x)
 
 static void	ft_go(so_long **game, int y, int x)
 {
-	int	moov;
+	int			moov;
 
 	moov = 0;
 	if ((*game)->str[(*game)->player_y + y][(*game)->player_x + x] == '0')
@@ -66,7 +66,7 @@ static void	ft_go(so_long **game, int y, int x)
 			return (0);
 		}
 		else
-			ft_printf("Il te manque des pieces\n");
+			ft_printf("Il te manque %i piece(s)\n", (*game)->coin_count);
 	}
 	else if ((*game)->str[(*game)->player_y + y][(*game)->player_x + x] == 'N')
 	{

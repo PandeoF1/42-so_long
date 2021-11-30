@@ -72,6 +72,7 @@ int				ft_exit_hook(so_long **game);
 int				ft_init_map(so_long **game, char *path);
 char			*ft_get_file(int fd, int size, int len);
 char			**ft_split_ln(char *str, char *charset, int *ln);
+int				ft_sprite(so_long **game);
 
 int				ft_printf(const char *str, ...);
 int				ft_putnbr_base(unsigned int nbr, char *base);

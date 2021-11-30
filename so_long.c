@@ -28,6 +28,7 @@ int	main(int argc, char **argv)
 			game->player_mouv = 0;
 			mlx_key_hook(game->mlx_win, ft_win_event, &game);
 			mlx_hook(game->mlx_win, 17, 1L << 17, ft_exit_hook, &game);
+			mlx_loop_hook(game->mlx, ft_sprite, &game);
 			mlx_loop(game->mlx);
 			ft_close(&game);
 			ft_printf("You made : %i.\n", game->player_mouv);
@@ -41,7 +42,7 @@ int	main(int argc, char **argv)
 	return (1);
 }
 
-int	create_trgb(int t, int r, int g, int b)
+/*int	create_trgb(int t, int r, int g, int b)
 {
 	return (t << 24 | r << 16 | g << 8 | b);
-}
+}*/
