@@ -14,14 +14,53 @@
 
 static void	ft_open_map(so_long **game)
 {
-	//check if file exist maybe
 	(*game)->border = mlx_xpm_file_to_image((*game)->mlx, "./img/border.xpm", &(*game)->picture_size , &(*game)->picture_size );
 	(*game)->player = mlx_xpm_file_to_image((*game)->mlx, "./img/player.xpm", &(*game)->picture_size , &(*game)->picture_size );
 	(*game)->exit = mlx_xpm_file_to_image((*game)->mlx, "./img/exit.xpm", &(*game)->picture_size , &(*game)->picture_size );
 	(*game)->coin = mlx_xpm_file_to_image((*game)->mlx, "./img/coin.xpm", &(*game)->picture_size , &(*game)->picture_size );
+	ft_open_number(&(*game));
 }
 
-static int	ft_push_map(so_long **game) // TODO : peut etre fait une fonction put image pour baisser la taille de celle ci, check pour plusieur jouer / plusieur exit (si il faut check ca)
+void	ft_open_number(so_long **game)
+{
+	(*game)->number[0] = mlx_xpm_file_to_image((*game)->mlx, "./img/number/0.xpm", &(*game)->picture_size , &(*game)->picture_size);
+	(*game)->number[1] = mlx_xpm_file_to_image((*game)->mlx, "./img/number/1.xpm", &(*game)->picture_size , &(*game)->picture_size);
+	(*game)->number[2] = mlx_xpm_file_to_image((*game)->mlx, "./img/number/2.xpm", &(*game)->picture_size , &(*game)->picture_size);
+	(*game)->number[3] = mlx_xpm_file_to_image((*game)->mlx, "./img/number/3.xpm", &(*game)->picture_size , &(*game)->picture_size);
+	(*game)->number[4] = mlx_xpm_file_to_image((*game)->mlx, "./img/number/4.xpm", &(*game)->picture_size , &(*game)->picture_size);
+	(*game)->number[5] = mlx_xpm_file_to_image((*game)->mlx, "./img/number/5.xpm", &(*game)->picture_size , &(*game)->picture_size);
+	(*game)->number[6] = mlx_xpm_file_to_image((*game)->mlx, "./img/number/6.xpm", &(*game)->picture_size , &(*game)->picture_size);
+	(*game)->number[7] = mlx_xpm_file_to_image((*game)->mlx, "./img/number/7.xpm", &(*game)->picture_size , &(*game)->picture_size);
+	(*game)->number[8] = mlx_xpm_file_to_image((*game)->mlx, "./img/number/8.xpm", &(*game)->picture_size , &(*game)->picture_size);
+	(*game)->number[9] = mlx_xpm_file_to_image((*game)->mlx, "./img/number/9.xpm", &(*game)->picture_size , &(*game)->picture_size);
+}
+
+static int	ft_push_img(so_long **game, int x, int y)
+{
+	if ((*game)->str[y][x] == '1')
+		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win, (*game)->border, x * (*game)->mult, y * (*game)->mult);
+	else if ((*game)->str[y][x] == 'E')
+		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win, (*game)->exit, x * (*game)->mult, y * (*game)->mult);
+	else if ((*game)->str[y][x] == 'P')
+	{
+		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win, (*game)->player, x * (*game)->mult, y * (*game)->mult);
+		if ((*game)->player_x != 0 || (*game)->player_y != 0)
+			return (0);
+		(*game)->player_x = x;
+		(*game)->player_y = y;
+	}
+	else if ((*game)->str[y][x] == 'C')
+	{
+		(*game)->coin_count++;
+		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win, (*game)->coin, x * (*game)->mult, y * (*game)->mult);
+	}
+	else if ((*game)->str[y][x] == 'N')
+		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win, (*game)->border, x * (*game)->mult, y * (*game)->mult);
+	//else
+	return (1);
+}
+
+static int	ft_push_map(so_long **game)
 {
 	int	x;
 	int	y;
@@ -37,21 +76,8 @@ static int	ft_push_map(so_long **game) // TODO : peut etre fait une fonction put
 		x = 0;
 		while (x * (*game)->mult < (*game)->max_x * (*game)->mult)
 		{
-			if ((*game)->str[y][x] == '1')
-				mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win, (*game)->border, x * (*game)->mult, y * (*game)->mult);
-			else if ((*game)->str[y][x] == 'E')
-				mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win, (*game)->exit, x * (*game)->mult, y * (*game)->mult);
-			else if ((*game)->str[y][x] == 'P')
-			{
-				mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win, (*game)->player, x * (*game)->mult, y * (*game)->mult);
-				(*game)->player_x = x;
-				(*game)->player_y = y;
-			}
-			else if ((*game)->str[y][x] == 'C') //25
-			{
-				(*game)->coin_count++;
-				mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win, (*game)->coin, x * (*game)->mult, y * (*game)->mult);
-			}
+			if (!ft_push_img(&(*game), x, y))
+				return (0);
 			x++;
 		}
 		y++;
@@ -101,7 +127,7 @@ int	ft_init_map(so_long **game, char *path) // leak ici
 	{
 		check->x = 0;
 		check->count_x = 0;
-		while (check->x < check->max_x && ((*game)->str[check->y][check->x] == '1' || (*game)->str[check->y][check->x] == 'E' || (*game)->str[check->y][check->x] == 'P' || (*game)->str[check->y][check->x] == 'C' || (*game)->str[check->y][check->x] == '0'))
+		while (check->x < check->max_x && ((*game)->str[check->y][check->x] == '1' || (*game)->str[check->y][check->x] == 'E' || (*game)->str[check->y][check->x] == 'P' || (*game)->str[check->y][check->x] == 'C' || (*game)->str[check->y][check->x] == '0' || (*game)->str[check->y][check->x] == 'N'))
 		{
 			if ((check->y == 0 || check->y == check->max_y - 1) && (*game)->str[check->y][check->x] == '1')
 				check->count_x++;

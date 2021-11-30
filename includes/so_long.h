@@ -42,6 +42,7 @@ typedef struct so_long
 	int		picture_size;
 	int		coin_count;
 	int		player_mouv;
+	void	*number[10];
 	void	*border;
 	void	*player;
 	void	*exit;

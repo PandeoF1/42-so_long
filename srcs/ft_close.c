@@ -27,6 +27,9 @@ int	ft_close(so_long **game)
 	mlx_destroy_image((*game)->mlx, (*game)->border);
 	mlx_destroy_image((*game)->mlx, (*game)->coin);
 	mlx_destroy_image((*game)->mlx, (*game)->exit);
+	x = 0;
+	while (x < 10)
+		mlx_destroy_image((*game)->mlx, (*game)->number[x++]);
 	mlx_destroy_window((*game)->mlx, (*game)->mlx_win);
 	mlx_destroy_display((*game)->mlx);
 	x = 0;

@@ -12,11 +12,25 @@
 
 #include "../includes/so_long.h"
 
-static void ft_print_moov(so_long **game)
+static int ft_int_len(int x)
 {
-	//int		mlx_string_put(void *mlx_ptr, void *win_ptr, int x, int y, int color, char *string);
-	mlx_string_put((*game)->mlx, (*game)->mlx_win, 10, 10, 0x00FF0000, "Moov : 10");
-	ft_printf("string printed\n");
+	int	y;
+
+	y = 0;
+	if (x > 0)
+	{
+		if (x > 9)
+			y += ft_int_len(x / 10);
+		y++;
+	}
+	return (y);
+}
+
+static void ft_print_moov(so_long **game, int x, int y)
+{
+	if (x > 9)
+		ft_print_moov(&(*game), x / 10, y - 1);
+	mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win, (*game)->number[x % 10],0 + (*game)->mult / 2 * y, 0);
 }
 
 static void ft_moov(so_long **game, int y, int x)
@@ -28,8 +42,7 @@ static void ft_moov(so_long **game, int y, int x)
 	(*game)->player_y += y;
 	(*game)->player_x += x;
 	(*game)->player_mouv++;
-	ft_printf("%i\n", (*game)->player_mouv);
-	ft_print_moov(&(*game));
+	ft_print_moov(&(*game), (*game)->player_mouv, ft_int_len((*game)->player_mouv));
 }
 
 static void	ft_go(so_long **game, int y, int x)
@@ -37,7 +50,6 @@ static void	ft_go(so_long **game, int y, int x)
 	int	moov;
 
 	moov = 0;
-	//ft_printf("go up %i\nx y = %c\n", (*game)->mult, (*game)->str[(*game)->player_y + y][(*game)->player_x + x]);
 	if ((*game)->str[(*game)->player_y + y][(*game)->player_x + x] == '0')
 		moov = 1;
 	else if ((*game)->str[(*game)->player_y + y][(*game)->player_x + x] == 'C')
@@ -56,13 +68,17 @@ static void	ft_go(so_long **game, int y, int x)
 		else
 			ft_printf("Il te manque des pieces\n");
 	}
+	else if ((*game)->str[(*game)->player_y + y][(*game)->player_x + x] == 'N')
+	{
+		mlx_loop_end((*game)->mlx);
+		ft_printf("dead\n");
+	}
 	if (moov)
 		ft_moov(&(*game), y, x);
 }
 
 int	ft_win_event(int keycode, so_long **game) //Rajouter le close avec esc et la croix :)
 {
-	//ft_printf("keycode : %i\n", keycode);
 	if (keycode == event_w)
 		ft_go(&(*game), -1, 0);
 	else if (keycode == event_a)
