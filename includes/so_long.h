@@ -42,6 +42,8 @@ typedef struct so_long
 	int		picture_size;
 	int		coin_count;
 	int		player_mouv;
+	int		anim_count;
+	int		enemies_count;
 	void	*number[10];
 	void	*border;
 	void	*player;
@@ -73,6 +75,8 @@ int				ft_init_map(so_long **game, char *path);
 char			*ft_get_file(int fd, int size, int len);
 char			**ft_split_ln(char *str, char *charset, int *ln);
 int				ft_sprite(so_long **game);
+void			*ft_open_xpm(so_long **game, char *str);
+void			ft_init_while(so_long **game, map_check **check);
 
 int				ft_printf(const char *str, ...);
 int				ft_putnbr_base(unsigned int nbr, char *base);

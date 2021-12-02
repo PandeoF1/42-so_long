@@ -1,0 +1,125 @@
+ft_putchar.c: OK!
+ft_init_map.c: Error!
+Error: TOO_FEW_TAB          (line:  18, col:   1):	Missing tabs for indent level
+Error: SPC_BEFORE_NL        (line:  18, col:  66):	Space before newline
+Error: TOO_FEW_TAB          (line:  19, col:   1):	Missing tabs for indent level
+Error: NO_SPC_BFR_PAR       (line:  19, col:  32):	Extra space before parenthesis (brace/bracket)
+Error: TOO_FEW_TAB          (line:  21, col:   1):	Missing tabs for indent level
+Error: SPC_BEFORE_NL        (line:  21, col:  66):	Space before newline
+Error: TOO_FEW_TAB          (line:  22, col:   1):	Missing tabs for indent level
+Error: NO_SPC_BFR_PAR       (line:  22, col:  32):	Extra space before parenthesis (brace/bracket)
+Error: TOO_FEW_TAB          (line:  24, col:   1):	Missing tabs for indent level
+Error: SPC_BEFORE_NL        (line:  24, col:  64):	Space before newline
+Error: TOO_FEW_TAB          (line:  25, col:   1):	Missing tabs for indent level
+Error: NO_SPC_BFR_PAR       (line:  25, col:  32):	Extra space before parenthesis (brace/bracket)
+Error: TOO_FEW_TAB          (line:  27, col:   1):	Missing tabs for indent level
+Error: TOO_FEW_TAB          (line:  28, col:   1):	Missing tabs for indent level
+Error: MIXED_SPACE_TAB      (line:  28, col:   5):	Mixed spaces and tabs
+Error: NO_SPC_BFR_PAR       (line:  28, col:  33):	Extra space before parenthesis (brace/bracket)
+Error: LINE_TOO_LONG        (line:  34, col:  82):	line too long
+Error: NO_SPC_BFR_OPR       (line:  34, col: 107):	extra space before operator
+Error: LINE_TOO_LONG        (line:  35, col:  82):	line too long
+Error: NO_SPC_BFR_OPR       (line:  35, col: 107):	extra space before operator
+Error: LINE_TOO_LONG        (line:  36, col:  82):	line too long
+Error: NO_SPC_BFR_OPR       (line:  36, col: 107):	extra space before operator
+Error: LINE_TOO_LONG        (line:  37, col:  82):	line too long
+Error: NO_SPC_BFR_OPR       (line:  37, col: 107):	extra space before operator
+Error: LINE_TOO_LONG        (line:  38, col:  82):	line too long
+Error: NO_SPC_BFR_OPR       (line:  38, col: 107):	extra space before operator
+Error: LINE_TOO_LONG        (line:  39, col:  82):	line too long
+Error: NO_SPC_BFR_OPR       (line:  39, col: 107):	extra space before operator
+Error: LINE_TOO_LONG        (line:  40, col:  82):	line too long
+Error: NO_SPC_BFR_OPR       (line:  40, col: 107):	extra space before operator
+Error: LINE_TOO_LONG        (line:  41, col:  82):	line too long
+Error: NO_SPC_BFR_OPR       (line:  41, col: 107):	extra space before operator
+Error: LINE_TOO_LONG        (line:  42, col:  82):	line too long
+Error: NO_SPC_BFR_OPR       (line:  42, col: 107):	extra space before operator
+Error: LINE_TOO_LONG        (line:  43, col:  82):	line too long
+Error: NO_SPC_BFR_OPR       (line:  43, col: 107):	extra space before operator
+Error: LINE_TOO_LONG        (line:  49, col:  82):	line too long
+Error: LINE_TOO_LONG        (line:  51, col:  82):	line too long
+Error: LINE_TOO_LONG        (line:  54, col:  82):	line too long
+Error: LINE_TOO_LONG        (line:  63, col:  82):	line too long
+Error: LINE_TOO_LONG        (line:  66, col:  82):	line too long
+Error: WRONG_SCOPE_COMMENT  (line:  67, col:   5):	Comment is invalid in this scope
+Error: LINE_TOO_LONG        (line:  80, col:  83):	line too long
+Error: WRONG_SCOPE_COMMENT  (line:  96, col:  45):	Comment is invalid in this scope
+Error: NO_SPC_BFR_OPR       (line: 104, col:  29):	extra space before operator
+Error: SPC_AFTER_OPERATOR   (line: 104, col:  29):	missing space after operator
+Error: SPACE_AFTER_KW       (line: 110, col:   5):	Missing space after keyword
+Error: SPC_BFR_PAR          (line: 110, col:  10):	Missing space before parenthesis (brace/bracket)
+Error: LINE_TOO_LONG        (line: 114, col:  83):	line too long
+Error: LINE_TOO_LONG        (line: 116, col:  86):	line too long
+Error: LINE_TOO_LONG        (line: 120, col:  82):	line too long
+Error: TOO_MANY_LINES       (line: 130, col:   1):	Function has more than 25 lines
+ft_check_file.c: OK!
+ft_putnbr_base.c: OK!
+ft_printf.c: OK!
+ft_putnbr.c: OK!
+ft_close.c: OK!
+ft_sprite.c: Error!
+Error: TAB_INSTEAD_SPC      (line:  17, col:   8):	Found tab when expecting space
+Notice: GLOBAL_VAR_DETECTED  (line:  18, col:   1):	Global variable present in file. Make sure it is a reasonable choice.
+Error: TOO_MANY_TAB         (line:  18, col:   1):	Extra tabs for indent level
+Error: GLOBAL_VAR_NAMING    (line:  18, col:   9):	Global variable must start with g_
+Error: TOO_MANY_TAB         (line:  21, col:   1):	Extra tabs for indent level
+Error: WRONG_SCOPE          (line:  21, col:   1):	Statement is in incorrect scope
+Error: TOO_MANY_TAB         (line:  22, col:   1):	Extra tabs for indent level
+Error: TOO_MANY_TAB         (line:  24, col:   1):	Extra tabs for indent level
+Error: TOO_MANY_TAB         (line:  25, col:   1):	Extra tabs for indent level
+Error: TOO_MANY_TAB         (line:  26, col:   1):	Extra tabs for indent level
+Error: TOO_MANY_TAB         (line:  27, col:   1):	Extra tabs for indent level
+Error: BRACE_SHOULD_EOL     (line:  27, col:  14):	Expected newline after brace
+Error: WRONG_SCOPE_COMMENT  (line:  27, col:  15):	Comment is invalid in this scope
+Error: WRONG_SCOPE_COMMENT  (line:  27, col:  15):	Comment is invalid in this scope
+Error: TOO_MANY_TAB         (line:  28, col:   1):	Extra tabs for indent level
+Error: LINE_TOO_LONG        (line:  28, col:  83):	line too long
+Error: TOO_MANY_TAB         (line:  29, col:   1):	Extra tabs for indent level
+Error: TOO_MANY_TAB         (line:  30, col:   1):	Extra tabs for indent level
+Error: TOO_MANY_TAB         (line:  31, col:   1):	Extra tabs for indent level
+Error: TOO_MANY_TAB         (line:  32, col:   1):	Extra tabs for indent level
+Error: TOO_MANY_TAB         (line:  33, col:   1):	Extra tabs for indent level
+Error: TOO_MANY_TAB         (line:  34, col:   1):	Extra tabs for indent level
+Error: TOO_MANY_TAB         (line:  37, col:   1):	Extra tabs for indent level
+Error: LINE_TOO_LONG        (line:  37, col:  83):	line too long
+Error: TOO_MANY_TAB         (line:  38, col:   1):	Extra tabs for indent level
+Error: LINE_TOO_LONG        (line:  38, col:  83):	line too long
+Error: TOO_MANY_TAB         (line:  39, col:   1):	Extra tabs for indent level
+Error: TOO_MANY_TAB         (line:  40, col:   1):	Extra tabs for indent level
+Error: TOO_MANY_TAB         (line:  41, col:   1):	Extra tabs for indent level
+Error: TOO_MANY_TAB         (line:  44, col:   1):	Extra tabs for indent level
+Error: LINE_TOO_LONG        (line:  44, col:  83):	line too long
+Error: TOO_MANY_TAB         (line:  45, col:   1):	Extra tabs for indent level
+Error: LINE_TOO_LONG        (line:  45, col:  83):	line too long
+Error: TOO_MANY_TAB         (line:  47, col:   1):	Extra tabs for indent level
+Error: TOO_MANY_TAB         (line:  48, col:   1):	Extra tabs for indent level
+Error: TOO_MANY_TAB         (line:  50, col:   1):	Extra tabs for indent level
+Error: TOO_MANY_TAB         (line:  52, col:   1):	Extra tabs for indent level
+Error: NEWLINE_PRECEDES_FUNC (line:  53, col:   1):	Functions must be separated by a newline
+Error: WRONG_SCOPE_COMMENT  (line:  62, col:   9):	Comment is invalid in this scope
+Error: WRONG_SCOPE_COMMENT  (line:  68, col:   9):	Comment is invalid in this scope
+ft_split_ln.c: OK!
+ft_strlen.c: OK!
+ft_putstr.c: OK!
+ft_strrchr.c: OK!
+ft_putmemory.c: OK!
+ft_event.c: Error!
+Error: SPACE_BEFORE_FUNC    (line:  15, col:  11):	space before function name
+Error: SPACE_BEFORE_FUNC    (line:  29, col:  12):	space before function name
+Error: LINE_TOO_LONG        (line:  33, col:  83):	line too long
+Error: SPC_AFTER_OPERATOR   (line:  33, col:  84):	missing space after operator
+Error: SPACE_BEFORE_FUNC    (line:  36, col:  12):	space before function name
+Error: SPC_AFTER_OPERATOR   (line:  38, col:  76):	missing space after operator
+Error: SPC_BFR_PAR          (line:  38, col:  77):	Missing space before parenthesis (brace/bracket)
+Error: LINE_TOO_LONG        (line:  38, col:  84):	line too long
+Error: SPC_AFTER_OPERATOR   (line:  39, col:  76):	missing space after operator
+Error: SPC_BFR_PAR          (line:  39, col:  77):	Missing space before parenthesis (brace/bracket)
+Error: LINE_TOO_LONG        (line:  39, col:  84):	line too long
+Error: LINE_TOO_LONG        (line:  45, col:  82):	line too long
+Error: TOO_MANY_LINES       (line:  78, col:   1):	Function has more than 25 lines
+Error: WRONG_SCOPE_COMMENT  (line:  80, col:  47):	Comment is invalid in this scope
+Error: LINE_TOO_LONG        (line:  80, col:  90):	line too long
+Error: BRACE_SHOULD_EOL     (line:  97, col:   1):	Expected newline after brace
+ft_get_file.c: OK!
+ft_strcmp.c: OK!
+ft_strlcpy.c: OK!
