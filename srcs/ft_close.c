@@ -19,17 +19,22 @@ int	ft_exit_hook(so_long **game)
 	return (0);
 }
 
-int	ft_close(so_long **game)
+int	ft_close(so_long **game, int x)
 {
-	int	x;
-
-	mlx_destroy_image((*game)->mlx, (*game)->player);
 	mlx_destroy_image((*game)->mlx, (*game)->border);
-	mlx_destroy_image((*game)->mlx, (*game)->coin);
+	mlx_destroy_image((*game)->mlx, (*game)->background);
 	mlx_destroy_image((*game)->mlx, (*game)->exit);
-	x = 0;
 	while (x < 10)
 		mlx_destroy_image((*game)->mlx, (*game)->number[x++]);
+	x = 0;
+	while (x < 11)
+		mlx_destroy_image((*game)->mlx, (*game)->enemies[x++]);
+	x = 0;
+	while (x < 4)
+		mlx_destroy_image((*game)->mlx, (*game)->coin[x++]);
+	x = 0;
+	while (x < 6)
+		mlx_destroy_image((*game)->mlx, (*game)->player[x++]);
 	mlx_destroy_window((*game)->mlx, (*game)->mlx_win);
 	mlx_destroy_display((*game)->mlx);
 	x = 0;

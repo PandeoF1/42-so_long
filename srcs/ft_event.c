@@ -37,13 +37,13 @@ static void	ft_print_moov(so_long **game, int x, int y)
 static void	ft_moov(so_long **game, int y, int x)
 {
 	mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
-		(*game)->border, ((*game)->player_x) * (*game)->mult,
+		(*game)->background, ((*game)->player_x) * (*game)->mult,
 		((*game)->player_y) * (*game)->mult);
 	mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
-		(*game)->player, ((*game)->player_x + x) * (*game)->mult,
+		(*game)->player[0], ((*game)->player_x + x) * (*game)->mult,
 		((*game)->player_y + y) * (*game)->mult);
 	(*game)->str[(*game)->player_y + y][(*game)->player_x + x] = 'P';
-	(*game)->str[(*game)->player_y][(*game)->player_x] = 'P';
+	(*game)->str[(*game)->player_y][(*game)->player_x] = '0';
 	(*game)->player_y += y;
 	(*game)->player_x += x;
 	(*game)->player_mouv++;

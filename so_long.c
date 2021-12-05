@@ -30,7 +30,7 @@ int	main(int argc, char **argv)
 		mlx_hook(game->mlx_win, 17, 1L << 17, ft_exit_hook, &game);
 		mlx_loop_hook(game->mlx, ft_sprite, &game);
 		mlx_loop(game->mlx);
-		ft_close(&game);
+		ft_close(&game, 0);
 		ft_printf("You made : %i.\n", game->player_mouv);
 	}
 	else

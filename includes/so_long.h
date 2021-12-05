@@ -44,11 +44,16 @@ typedef struct so_long
 	int		player_mouv;
 	int		anim_count;
 	int		enemies_count;
+	int		anim_enemies;
+	int		anim_coin;
+	int		anim_player;
 	void	*number[10];
 	void	*border;
-	void	*player;
+	void	*background;
+	void	*player[6];
+	void	*enemies[11];
 	void	*exit;
-	void	*coin;
+	void	*coin[4];
 	void	*mlx;
 	void	*mlx_win;
 }				so_long;
@@ -69,7 +74,7 @@ int				ft_strlen(char *str);
 
 int				ft_check_file(char *path);
 int				ft_win_event(int keycode, so_long **game);
-int				ft_close(so_long **game);
+int				ft_close(so_long **game, int x);
 int				ft_exit_hook(so_long **game);
 int				ft_init_map(so_long **game, char *path);
 char			*ft_get_file(int fd, int size, int len);
@@ -77,6 +82,7 @@ char			**ft_split_ln(char *str, char *charset, int *ln);
 int				ft_sprite(so_long **game);
 void			*ft_open_xpm(so_long **game, char *str);
 void			ft_init_while(so_long **game, map_check **check);
+void			ft_init_xpm(so_long **game);
 
 int				ft_printf(const char *str, ...);
 int				ft_putnbr_base(unsigned int nbr, char *base);

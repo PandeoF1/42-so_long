@@ -12,27 +12,14 @@
 
 #include "../includes/so_long.h"
 
-void	ft_open_number(so_long **game)
+static void	ft_push_img_min(so_long **game, int x, int y)
 {
-	(*game)->number[0] = ft_open_xpm(&(*game), "./img/number/0.xpm");
-	(*game)->number[1] = ft_open_xpm(&(*game), "./img/number/1.xpm");
-	(*game)->number[2] = ft_open_xpm(&(*game), "./img/number/2.xpm");
-	(*game)->number[3] = ft_open_xpm(&(*game), "./img/number/3.xpm");
-	(*game)->number[4] = ft_open_xpm(&(*game), "./img/number/4.xpm");
-	(*game)->number[5] = ft_open_xpm(&(*game), "./img/number/5.xpm");
-	(*game)->number[6] = ft_open_xpm(&(*game), "./img/number/6.xpm");
-	(*game)->number[7] = ft_open_xpm(&(*game), "./img/number/7.xpm");
-	(*game)->number[8] = ft_open_xpm(&(*game), "./img/number/8.xpm");
-	(*game)->number[9] = ft_open_xpm(&(*game), "./img/number/9.xpm");
-}
-
-static void	ft_open_map(so_long **game)
-{
-	(*game)->border = ft_open_xpm(&(*game), "./img/border.xpm");
-	(*game)->player = ft_open_xpm(&(*game), "./img/player.xpm");
-	(*game)->exit = ft_open_xpm(&(*game), "./img/exit.xpm");
-	(*game)->coin = ft_open_xpm(&(*game), "./img/coin.xpm");
-	ft_open_number(&(*game));
+	if ((*game)->str[y][x] == 'N')
+		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
+			(*game)->enemies[0], x * (*game)->mult, y * (*game)->mult);
+	else
+		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
+			(*game)->background, x * (*game)->mult, y * (*game)->mult);
 }
 
 static int	ft_push_img(so_long **game, int x, int y)
@@ -46,7 +33,7 @@ static int	ft_push_img(so_long **game, int x, int y)
 	else if ((*game)->str[y][x] == 'P')
 	{
 		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
-			(*game)->player, x * (*game)->mult, y * (*game)->mult);
+			(*game)->player[0], x * (*game)->mult, y * (*game)->mult);
 		if ((*game)->player_x != 0 || (*game)->player_y != 0)
 			return (0);
 		(*game)->player_x = x;
@@ -56,11 +43,10 @@ static int	ft_push_img(so_long **game, int x, int y)
 	{
 		(*game)->coin_count++;
 		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
-			(*game)->coin, x * (*game)->mult, y * (*game)->mult);
+			(*game)->coin[0], x * (*game)->mult, y * (*game)->mult);
 	}
-	else if ((*game)->str[y][x] == 'N')
-		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
-			(*game)->border, x * (*game)->mult, y * (*game)->mult);
+	else
+		ft_push_img_min(&(*game), x, y);
 	return (1);
 }
 
@@ -75,8 +61,8 @@ static int	ft_push_map(so_long **game)
 	(*game)->mlx = mlx_init();
 	(*game)->mlx_win = mlx_new_window((*game)->mlx,
 			(*game)->max_x * (*game)->mult,
-			(*game)->max_y * (*game)->mult, "test");
-	ft_open_map(&(*game));
+			(*game)->max_y * (*game)->mult, "so_long | v1.0");
+	ft_init_xpm(&(*game));
 	while (y * (*game)->mult < (*game)->max_y * (*game)->mult)
 	{
 		x = 0;
