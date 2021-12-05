@@ -14,10 +14,10 @@
 
 int	main(int argc, char **argv)
 {
-	so_long	*game;
-	int		fd;
+	t_so_long	*game;
+	int			fd;
 
-	game = malloc(sizeof(so_long));
+	game = malloc(sizeof(t_so_long));
 	game->mult = 50;
 	if (!game)
 		return (0);

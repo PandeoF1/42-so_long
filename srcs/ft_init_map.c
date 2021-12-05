@@ -12,7 +12,7 @@
 
 #include "../includes/so_long.h"
 
-static void	ft_push_img_min(so_long **game, int x, int y)
+static void	ft_push_img_min(t_so_long **game, int x, int y)
 {
 	if ((*game)->str[y][x] == 'N')
 		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
@@ -22,7 +22,7 @@ static void	ft_push_img_min(so_long **game, int x, int y)
 			(*game)->background, x * (*game)->mult, y * (*game)->mult);
 }
 
-static int	ft_push_img(so_long **game, int x, int y)
+static int	ft_push_img(t_so_long **game, int x, int y)
 {
 	if ((*game)->str[y][x] == '1')
 		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
@@ -50,7 +50,7 @@ static int	ft_push_img(so_long **game, int x, int y)
 	return (1);
 }
 
-static int	ft_push_map(so_long **game)
+static int	ft_push_map(t_so_long **game)
 {
 	int	x;
 	int	y;
@@ -77,13 +77,13 @@ static int	ft_push_map(so_long **game)
 	return (1);
 }
 
-int	ft_init_map(so_long **game, char *path)
+int	ft_init_map(t_so_long **game, char *path)
 {
-	map_check	*check;
+	t_map_check	*check;
 	int			fd;
 	char		*str;
 
-	check = malloc(sizeof(map_check));
+	check = malloc(sizeof(t_map_check));
 	fd = open(path, O_RDONLY);
 	str = ft_get_file(fd, 0, 0);
 	(*game)->str = ft_split_ln(str, "\n", &check->max_y);

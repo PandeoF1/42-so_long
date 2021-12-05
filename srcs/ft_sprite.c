@@ -12,7 +12,7 @@
 
 #include "../includes/so_long.h"
 
-static void	ft_moov_enemies_min(so_long **game, int x, int y)
+static void	ft_moov_enemies_min(t_so_long **game, int x, int y)
 {
 	if ((*game)->str[y][x + 1] == 'P' || (*game)->str[y][x - 1] == 'P')
 	{
@@ -40,7 +40,7 @@ static void	ft_moov_enemies_min(so_long **game, int x, int y)
 	}
 }
 
-static void	ft_moov_enemies(so_long **game)
+static void	ft_moov_enemies(t_so_long **game)
 {
 	int	x;
 	int	y;
@@ -56,7 +56,7 @@ static void	ft_moov_enemies(so_long **game)
 	}
 }
 
-static void	ft_anim_change(so_long **game, int x, int y, char type)
+static void	ft_anim_change(t_so_long **game, int x, int y, char type)
 {
 	if (type == 'N')
 	{
@@ -84,7 +84,7 @@ static void	ft_anim_change(so_long **game, int x, int y, char type)
 	}
 }
 
-static void	ft_anim(so_long **game)
+static void	ft_anim(t_so_long **game)
 {
 	int	x;
 	int	y;
@@ -109,7 +109,7 @@ static void	ft_anim(so_long **game)
 	(*game)->anim_enemies++;
 }
 
-int	ft_sprite(so_long **game)
+int	ft_sprite(t_so_long **game)
 {
 	(*game)->anim_count++;
 	(*game)->enemies_count++;

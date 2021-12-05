@@ -26,7 +26,7 @@ static int	ft_int_len(int x)
 	return (y);
 }
 
-static void	ft_print_moov(so_long **game, int x, int y)
+static void	ft_print_moov(t_so_long **game, int x, int y)
 {
 	if (x > 9)
 		ft_print_moov(&(*game), x / 10, y - 1);
@@ -34,7 +34,7 @@ static void	ft_print_moov(so_long **game, int x, int y)
 		(*game)->number[x % 10], 0 + (*game)->mult / 2 * y, 0);
 }
 
-static void	ft_moov(so_long **game, int y, int x)
+static void	ft_moov(t_so_long **game, int y, int x)
 {
 	mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
 		(*game)->background, ((*game)->player_x) * (*game)->mult,
@@ -51,7 +51,7 @@ static void	ft_moov(so_long **game, int y, int x)
 		ft_int_len((*game)->player_mouv));
 }
 
-static void	ft_go(so_long **game, int y, int x, int moov)
+static void	ft_go(t_so_long **game, int y, int x, int moov)
 {
 	if ((*game)->str[(*game)->player_y + y][(*game)->player_x + x] == '0')
 		moov = 1;
@@ -80,17 +80,17 @@ static void	ft_go(so_long **game, int y, int x, int moov)
 		ft_moov(&(*game), y, x);
 }
 
-int	ft_win_event(int keycode, so_long **game)
+int	ft_win_event(int keycode, t_so_long **game)
 {
-	if (keycode == event_w)
+	if (keycode == EVENT_W)
 		ft_go(&(*game), -1, 0, 0);
-	else if (keycode == event_a)
+	else if (keycode == EVENT_A)
 		ft_go(&(*game), 0, -1, 0);
-	else if (keycode == event_d)
+	else if (keycode == EVENT_D)
 		ft_go(&(*game), 0, 1, 0);
-	else if (keycode == event_s)
+	else if (keycode == EVENT_S)
 		ft_go(&(*game), 1, 0, 0);
-	else if (keycode == event_esc)
+	else if (keycode == EVENT_ESC)
 	{
 		mlx_loop_end((*game)->mlx);
 		ft_printf("close\n");

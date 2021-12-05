@@ -21,11 +21,11 @@
 # include <stdio.h>
 # include <stdarg.h>
 
-# define event_w 119
-# define event_a 97
-# define event_s 115
-# define event_d 100
-# define event_esc 65307
+# define EVENT_W 119
+# define EVENT_A 97
+# define EVENT_S 115
+# define EVENT_D 100
+# define EVENT_ESC 65307
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
@@ -56,7 +56,7 @@ typedef struct so_long
 	void	*coin[4];
 	void	*mlx;
 	void	*mlx_win;
-}				so_long;
+}				t_so_long;
 
 typedef struct map_check
 {
@@ -65,24 +65,24 @@ typedef struct map_check
 	int		count_x;
 	int		x;
 	int		y;
-}				map_check;
+}				t_map_check;
 
-char 			*ft_strrchr(const char *s, int c);
+char			*ft_strrchr(const char *s, int c);
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
 int				ft_strcmp(char *s1, char *s2);
 int				ft_strlen(char *str);
 
 int				ft_check_file(char *path);
-int				ft_win_event(int keycode, so_long **game);
-int				ft_close(so_long **game, int x);
-int				ft_exit_hook(so_long **game);
-int				ft_init_map(so_long **game, char *path);
+int				ft_win_event(int keycode, t_so_long **game);
+int				ft_close(t_so_long **game, int x);
+int				ft_exit_hook(t_so_long **game);
+int				ft_init_map(t_so_long **game, char *path);
 char			*ft_get_file(int fd, int size, int len);
 char			**ft_split_ln(char *str, char *charset, int *ln);
-int				ft_sprite(so_long **game);
-void			*ft_open_xpm(so_long **game, char *str);
-void			ft_init_while(so_long **game, map_check **check);
-void			ft_init_xpm(so_long **game);
+int				ft_sprite(t_so_long **game);
+void			*ft_open_xpm(t_so_long **game, char *str);
+void			ft_init_while(t_so_long **game, t_map_check **check);
+void			ft_init_xpm(t_so_long **game);
 
 int				ft_printf(const char *str, ...);
 int				ft_putnbr_base(unsigned int nbr, char *base);

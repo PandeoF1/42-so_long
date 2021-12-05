@@ -12,7 +12,7 @@
 
 #include "../includes/so_long.h"
 
-static void	ft_open_number(so_long **game)
+static void	ft_open_number(t_so_long **game)
 {
 	(*game)->number[0] = ft_open_xpm(&(*game), "./img/number/0.xpm");
 	(*game)->number[1] = ft_open_xpm(&(*game), "./img/number/1.xpm");
@@ -26,7 +26,7 @@ static void	ft_open_number(so_long **game)
 	(*game)->number[9] = ft_open_xpm(&(*game), "./img/number/9.xpm");
 }
 
-static void	ft_open_player(so_long **game)
+static void	ft_open_player(t_so_long **game)
 {
 	(*game)->player[0] = ft_open_xpm(&(*game), "./img/player/0.xpm");
 	(*game)->player[1] = ft_open_xpm(&(*game), "./img/player/1.xpm");
@@ -36,7 +36,7 @@ static void	ft_open_player(so_long **game)
 	(*game)->player[5] = ft_open_xpm(&(*game), "./img/player/5.xpm");
 }
 
-static void	ft_open_enemies(so_long **game)
+static void	ft_open_enemies(t_so_long **game)
 {
 	(*game)->enemies[0] = ft_open_xpm(&(*game), "./img/enemies/0.xpm");
 	(*game)->enemies[1] = ft_open_xpm(&(*game), "./img/enemies/1.xpm");
@@ -51,7 +51,7 @@ static void	ft_open_enemies(so_long **game)
 	(*game)->enemies[10] = ft_open_xpm(&(*game), "./img/enemies/10.xpm");
 }
 
-static void	ft_open_coin(so_long **game)
+static void	ft_open_coin(t_so_long **game)
 {
 	(*game)->coin[0] = ft_open_xpm(&(*game), "./img/coin/0.xpm");
 	(*game)->coin[1] = ft_open_xpm(&(*game), "./img/coin/1.xpm");
@@ -59,7 +59,7 @@ static void	ft_open_coin(so_long **game)
 	(*game)->coin[3] = ft_open_xpm(&(*game), "./img/coin/3.xpm");
 }
 
-void	ft_init_xpm(so_long **game)
+void	ft_init_xpm(t_so_long **game)
 {
 	(*game)->border = ft_open_xpm(&(*game), "./img/border.xpm");
 	(*game)->exit = ft_open_xpm(&(*game), "./img/exit.xpm");

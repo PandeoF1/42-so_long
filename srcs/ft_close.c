@@ -12,14 +12,14 @@
 
 #include "../includes/so_long.h"
 
-int	ft_exit_hook(so_long **game)
+int	ft_exit_hook(t_so_long **game)
 {
 	mlx_loop_end((*game)->mlx);
 	ft_printf("close\n");
 	return (0);
 }
 
-int	ft_close(so_long **game, int x)
+int	ft_close(t_so_long **game, int x)
 {
 	mlx_destroy_image((*game)->mlx, (*game)->border);
 	mlx_destroy_image((*game)->mlx, (*game)->background);
