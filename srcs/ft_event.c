@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 17:47:35 by tnard             #+#    #+#             */
-/*   Updated: 2021/11/29 03:03:55 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/12/07 13:44:00 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	ft_print_moov(t_so_long **game, int x, int y)
 	if (x > 9)
 		ft_print_moov(&(*game), x / 10, y - 1);
 	mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
-		(*game)->number[x % 10], 0 + (*game)->mult / 2 * y, 0);
+		(*game)->number[x % 10], (*game)->mult / 2 * y, 0);
 }
 
 static void	ft_moov(t_so_long **game, int y, int x)
