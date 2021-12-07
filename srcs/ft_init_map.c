@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 17:39:52 by tnard             #+#    #+#             */
-/*   Updated: 2021/11/29 03:06:17 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/12/07 11:46:17 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,8 @@ int	ft_init_map(t_so_long **game, char *path)
 	close(fd);
 	check->max_x = ft_strlen((*game)->str[0]);
 	check->y = 0;
-	ft_init_while(&(*game), &check);
+	if (ft_init_while(&(*game), &check) == 0)
+		return (0);
 	(*game)->max_x = check->max_x;
 	(*game)->max_y = check->max_y;
 	free(check);

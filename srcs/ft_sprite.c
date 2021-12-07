@@ -16,7 +16,6 @@ static int	ft_moov_enemies_min(t_so_long **game, int x, int y)
 {
 	int	a;
 
-	ft_printf("moov moi, x y = %i %i\n\n%s\n\n", x, y, (*game)->str[y]);
 	if ((*game)->str[y][x + 1] == 'P' || (*game)->str[y][x - 1] == 'P')
 		ft_printf("t'es mort mdr\n", mlx_loop_end((*game)->mlx));
 	mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
@@ -27,6 +26,7 @@ static int	ft_moov_enemies_min(t_so_long **game, int x, int y)
 		(*game)->str[y][x + 1] = 'N';
 		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
 			(*game)->enemies[0], (x + 1) * (*game)->mult, y * (*game)->mult);
+		return (1);
 	}
 	else
 	{
@@ -37,8 +37,8 @@ static int	ft_moov_enemies_min(t_so_long **game, int x, int y)
 		(*game)->str[y][a] = 'N';
 		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
 			(*game)->enemies[0], (a) * (*game)->mult, y * (*game)->mult);
-		return (1);
 	}
+	return (0);
 }
 
 static void	ft_moov_enemies(t_so_long **game)
@@ -120,7 +120,7 @@ int	ft_sprite(t_so_long **game)
 		(*game)->anim_count = 0;
 		(*game)->anim_enemies = 0;
 	}
-	else if ((*game)->anim_count == 20000)
+	else if ((*game)->anim_count == 15000)
 	{
 		(*game)->anim_count = 1;
 		ft_anim(&(*game));

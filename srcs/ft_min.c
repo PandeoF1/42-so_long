@@ -19,6 +19,27 @@ void	*ft_open_xpm(t_so_long **game, char *str)
 			&(*game)->picture_size));
 }
 
+int	ft_check_in(char str, char *charset)
+{
+	int	j;
+	int	check;
+
+	j = 0;
+	check = 0;
+	while (charset[j])
+	{
+		if (str == charset[j])
+			check = 1;
+		else if (str != charset[j] && check != 1)
+			check = 0;
+		j++;
+	}
+	if (check == 0)
+		return (0);
+	j = 0;
+	return (check);
+}
+
 int	ft_init_while(t_so_long **game, t_map_check **check)
 {
 	while ((*check)->y < (*check)->max_y)
@@ -26,13 +47,11 @@ int	ft_init_while(t_so_long **game, t_map_check **check)
 		(*check)->x = 0;
 		(*check)->count_x = 0;
 		while ((*check)->x < (*check)->max_x
-			&& ((*game)->str[(*check)->y][(*check)->x] == '1'
-			|| (*game)->str[(*check)->y][(*check)->x] == 'E'
-			|| (*game)->str[(*check)->y][(*check)->x] == 'P'
-			|| (*game)->str[(*check)->y][(*check)->x] == 'C'
-			|| (*game)->str[(*check)->y][(*check)->x] == '0'
-			|| (*game)->str[(*check)->y][(*check)->x] == 'N'))
+			&& ft_check_in((*game)->str[(*check)->y][(*check)->x], "10EPCN"))
 		{
+			if ((*game)->str[(*check)->y][0] != '1' ||
+				(*game)->str[(*check)->y][(*check)->max_x - 1] != '1')
+				return (0);
 			if (((*check)->y == 0 || (*check)->y == (*check)->max_y - 1)
 				&& (*game)->str[(*check)->y][(*check)->x] == '1')
 				(*check)->count_x++;
@@ -46,4 +65,5 @@ int	ft_init_while(t_so_long **game, t_map_check **check)
 			return (0);
 		(*check)->y++;
 	}
+	return (1);
 }
