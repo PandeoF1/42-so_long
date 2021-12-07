@@ -19,7 +19,7 @@ void	*ft_open_xpm(t_so_long **game, char *str)
 			&(*game)->picture_size));
 }
 
-void	ft_init_while(t_so_long **game, t_map_check **check)
+int	ft_init_while(t_so_long **game, t_map_check **check)
 {
 	while ((*check)->y < (*check)->max_y)
 	{

@@ -12,31 +12,32 @@
 
 #include "../includes/so_long.h"
 
-static void	ft_moov_enemies_min(t_so_long **game, int x, int y)
+static int	ft_moov_enemies_min(t_so_long **game, int x, int y)
 {
+	int	a;
+
+	ft_printf("moov moi, x y = %i %i\n\n%s\n\n", x, y, (*game)->str[y]);
 	if ((*game)->str[y][x + 1] == 'P' || (*game)->str[y][x - 1] == 'P')
-	{
-		ft_printf("t'es mort mdr\n");
-		mlx_loop_end((*game)->mlx);
-	}
-	if ((*game)->str[y][x - 1] == '0')
-	{
-		(*game)->str[y][x] = '0';
-		(*game)->str[y][x - 1] = 'N';
-		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
-			(*game)->enemies[0], (x - 1) * (*game)->mult, y * (*game)->mult);
-		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
-			(*game)->background, (x) * (*game)->mult, y * (*game)->mult);
-	}
-	else if ((*game)->str[y][x + 1] == '0')
+		ft_printf("t'es mort mdr\n", mlx_loop_end((*game)->mlx));
+	mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
+		(*game)->background, (x) * (*game)->mult, y * (*game)->mult);
+	if ((*game)->str[y][x + 1] == '0')
 	{
 		(*game)->str[y][x] = '0';
 		(*game)->str[y][x + 1] = 'N';
 		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
-			(*game)->background, (x) * (*game)->mult, y * (*game)->mult);
-		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
 			(*game)->enemies[0], (x + 1) * (*game)->mult, y * (*game)->mult);
-		x++;
+	}
+	else
+	{
+		a = 0;
+		(*game)->str[y][x] = '0';
+		while ((*game)->str[y][a] != '0' && a != (*game)->max_x)
+			a++;
+		(*game)->str[y][a] = 'N';
+		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
+			(*game)->enemies[0], (a) * (*game)->mult, y * (*game)->mult);
+		return (1);
 	}
 }
 
@@ -51,7 +52,7 @@ static void	ft_moov_enemies(t_so_long **game)
 		x = -1;
 		while (++x < (*game)->max_x)
 			if ((*game)->str[y][x] == 'N')
-				ft_moov_enemies_min(&(*game), x, y);
+				x += ft_moov_enemies_min(&(*game), x, y);
 		y++;
 	}
 }

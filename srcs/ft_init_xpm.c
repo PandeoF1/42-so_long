@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 17:39:52 by tnard             #+#    #+#             */
-/*   Updated: 2021/11/29 03:06:17 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/12/07 10:24:44 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	ft_init_xpm(t_so_long **game)
 {
 	(*game)->border = ft_open_xpm(&(*game), "./img/border.xpm");
 	(*game)->exit = ft_open_xpm(&(*game), "./img/exit.xpm");
-	(*game)->background = ft_open_xpm(&(*game), "./img/border.xpm");
+	(*game)->background = ft_open_xpm(&(*game), "./img/background.xpm");
 	ft_open_enemies(&(*game));
 	ft_open_coin(&(*game));
 	ft_open_number(&(*game));
