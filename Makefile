@@ -18,21 +18,21 @@ $(OBJS_DIR)%.o : %.c includes/so_long.h
 	@$(CC) -c $< -o $@
 	@echo "${BLU}[BUILD]${RST} $@"
 
-$(NAME): $(minilibx) $(OBJECTS_PREFIXED)
+$(NAME): $(OBJECTS_PREFIXED) mlx
 	@$(CC) -o $(NAME) $(OBJECTS_PREFIXED) $(CC_FLAGS)
 	@echo "\n\033[0;32mso_long compiled !\033[0m\n"
 
 all: $(NAME)
 
-$(minilibx):
-	@$(MAKE) -C mlbx
+mlx:
+	@make -C mlbx
 
 clean:
 	@rm -rf $(OBJS_DIR)
 	@echo "${GRN}[CLEAN]${RST} done"
 
 fclean: clean
-	@$(MAKE) clean -C mlbx
+	@make clean -C mlbx
 	@rm -f $(NAME)
 	@echo "${GRN}[FCLEAN]${RST} done"
 
