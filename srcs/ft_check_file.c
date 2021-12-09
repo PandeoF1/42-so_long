@@ -6,17 +6,11 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 17:38:27 by tnard             #+#    #+#             */
-/*   Updated: 2021/11/29 03:01:34 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/12/09 12:35:41 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-
-static int	ft_print_err(char	*str)
-{
-	ft_printf("Error.\n%s\n", str);
-	return (0);
-}
 
 int	ft_check_file(char *path)
 {

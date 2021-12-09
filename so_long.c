@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 17:38:27 by tnard             #+#    #+#             */
-/*   Updated: 2021/12/08 11:20:30 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/12/09 12:35:24 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	main(int argc, char **argv)
 {
 	t_so_long	*game;
-	int			fd;
 
 	game = malloc(sizeof(t_so_long));
 	game->mult = 50;

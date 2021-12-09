@@ -10,16 +10,17 @@ OBJS_DIR	= objs/
 OBJS		= $(SRCS:.c=.o)
 OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
 CC			= gcc
-CC_FLAGS	= -Wall -Werror -Wextra -I -g -L /usr/X11/lib -Lincludes -L./mlbx -lmlx -Imlx -lXext -lX11 -lz -lm
+CC_FLAGS	= -Wall -Werror -Wextra
+MLB_FLAGS	= -I -g -L /usr/X11/lib -Lincludes -L./mlbx -lmlx -Imlx -lXext -lX11 -lz -lm
 
 $(OBJS_DIR)%.o : %.c includes/so_long.h
 	@mkdir -p $(OBJS_DIR)
 	@mkdir -p $(OBJS_DIR)srcs
-	@$(CC) -c $< -o $@
+	@$(CC) $(CC_FLAGS) -c $< -o $@
 	@echo "${BLU}[BUILD]${RST} $@"
 
 $(NAME): $(OBJECTS_PREFIXED) mlx
-	@$(CC) -o $(NAME) $(OBJECTS_PREFIXED) $(CC_FLAGS)
+	@$(CC) -o $(NAME) $(OBJECTS_PREFIXED) $(CC_FLAGS) $(MLB_FLAGS)
 	@echo "\n\033[0;32mso_long compiled !\033[0m\n"
 
 all: $(NAME)
