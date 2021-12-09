@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/12/09 13:04:45 by tnard             #+#    #+#              #
+#    Updated: 2021/12/09 13:05:53 by tnard            ###   ########lyon.fr    #
+#                                                                              #
+# **************************************************************************** #
+
 BLU			= \033[0;34m
 GRN			= \033[0;32m
 RED			= \033[0;31m
@@ -21,7 +33,7 @@ $(OBJS_DIR)%.o : %.c includes/so_long.h
 
 $(NAME): $(OBJECTS_PREFIXED) mlx
 	@$(CC) -o $(NAME) $(OBJECTS_PREFIXED) $(CC_FLAGS) $(MLB_FLAGS)
-	@echo "\n\033[0;32mso_long compiled !\033[0m\n"
+	@echo "\n\033[0;32m$(NAME)compiled !\033[0m\n"
 
 all: $(NAME)
 
