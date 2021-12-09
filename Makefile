@@ -6,7 +6,7 @@
 #    By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/09 13:04:45 by tnard             #+#    #+#              #
-#    Updated: 2021/12/09 13:09:16 by tnard            ###   ########lyon.fr    #
+#    Updated: 2021/12/09 15:54:35 by tnard            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ BLU			= \033[0;34m
 GRN			= \033[0;32m
 RED			= \033[0;31m
 RST			= \033[0m
+END			= \e[0m
 
 SRCS		= so_long.c srcs/ft_init_xpm.c srcs/ft_min.c srcs/ft_sprite.c srcs/ft_get_file.c srcs/ft_split_ln.c srcs/ft_check_file.c srcs/ft_close.c srcs/ft_event.c srcs/ft_init_map.c srcs/ft_strcmp.c srcs/ft_strlcpy.c srcs/ft_strrchr.c srcs/ft_strlen.c srcs/ft_printf.c srcs/ft_putchar.c srcs/ft_putnbr_base.c srcs/ft_putnbr.c srcs/ft_putstr.c srcs/ft_putmemory.c
 NAME		= so_long
@@ -29,15 +30,16 @@ $(OBJS_DIR)%.o : %.c includes/so_long.h
 	@mkdir -p $(OBJS_DIR)
 	@mkdir -p $(OBJS_DIR)srcs
 	@$(CC) $(CC_FLAGS) -c $< -o $@
-	@echo "${BLU}[BUILD]${RST} $@"
+	@printf	"\033[2K\r${BLU}[BUILD - $(NAME)]${RST} '$<' $(END)"
 
 $(NAME): $(OBJECTS_PREFIXED) mlx
 	@$(CC) -o $(NAME) $(OBJECTS_PREFIXED) $(CC_FLAGS) $(MLB_FLAGS)
-	@echo "\n\033[0;32m$(NAME) compiled !\033[0m\n"
+	@echo "\033[0;32m[END]\033[0m $(NAME)"
 
 all: $(NAME)
 
 mlx:
+	@printf "\033[2K\r"
 	@make -C mlbx
 
 clean:
