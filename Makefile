@@ -20,11 +20,7 @@ $(OBJS_DIR)%.o : %.c includes/so_long.h
 	@echo "${BLU}[BUILD]${RST} $@"
 
 $(NAME): $(OBJECTS_PREFIXED) mlx
-<<<<<<< HEAD
 	@$(CC) -o $(NAME) $(OBJECTS_PREFIXED) $(CC_FLAGS) $(MLB_FLAGS)
-=======
-	@$(CC) -o $(NAME) $(OBJECTS_PREFIXED) $(CC_FLAGS)
->>>>>>> main
 	@echo "\n\033[0;32mso_long compiled !\033[0m\n"
 
 all: $(NAME)
