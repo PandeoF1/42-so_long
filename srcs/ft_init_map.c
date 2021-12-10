@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 17:39:52 by tnard             #+#    #+#             */
-/*   Updated: 2021/12/10 21:47:30 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/12/10 22:01:40 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	ft_push_img_min(t_so_long **game, int x, int y)
 			(*game)->background, x * (*game)->mult, y * (*game)->mult);
 }
 
-static int	ft_push_img(t_so_long **game, int x, int y)
+int	ft_push_img(t_so_long **game, int x, int y)
 {
 	if ((*game)->str[y][x] == '1')
 		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,

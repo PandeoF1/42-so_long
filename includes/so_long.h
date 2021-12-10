@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 02:38:07 by tnard             #+#    #+#             */
-/*   Updated: 2021/12/10 22:00:24 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/12/10 22:01:47 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ int				ft_sprite(t_so_long **game);
 void			*ft_open_xpm(t_so_long **game, char *str);
 int				ft_init_while(t_so_long **game, t_map_check **check);
 void			ft_init_xpm(t_so_long **game);
+int				ft_push_img(t_so_long **game, int x, int y);
 
 int				ft_printf(const char *str, ...);
 int				ft_putnbr_base(unsigned int nbr, char *base);
