@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 17:39:52 by tnard             #+#    #+#             */
-/*   Updated: 2021/12/10 22:16:29 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/12/10 22:17:24 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@ static void	ft_push_img_min(t_so_long **game, int x, int y)
 		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
 			(*game)->enemies[0], x * (*game)->mult, y * (*game)->mult);
 	else
+	{
+		ft_printf("gg?\n");
 		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
 			(*game)->background, x * (*game)->mult, y * (*game)->mult);
+	}
 }
 
 int	ft_push_img(t_so_long **game, int x, int y)
@@ -41,7 +44,6 @@ int	ft_push_img(t_so_long **game, int x, int y)
 	}
 	else if ((*game)->str[y][x] == 'C')
 	{
-		ft_printf("gg?\n");
 		(*game)->coin_count++;
 		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
 			(*game)->coin[0], x * (*game)->mult, y * (*game)->mult);
