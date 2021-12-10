@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 02:38:07 by tnard             #+#    #+#             */
-/*   Updated: 2021/12/10 15:05:36 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/12/10 22:00:24 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ typedef struct so_long
 	int		max_y;
 	int		player_x;
 	int		player_y;
-	int		picture_size;
 	int		coin_count;
 	int		player_mouv;
 	int		anim_count;

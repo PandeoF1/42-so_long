@@ -15,8 +15,8 @@
 void	*ft_open_xpm(t_so_long **game, char *str)
 {
 	return (mlx_xpm_file_to_image(
-			(*game)->mlx, str, &(*game)->picture_size,
-			&(*game)->picture_size));
+			(*game)->mlx, str, &(*game)->mult,
+			&(*game)->mult));
 }
 
 int	ft_check_in(char str, char *charset)

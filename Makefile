@@ -6,7 +6,7 @@
 #    By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/09 13:04:45 by tnard             #+#    #+#              #
-#    Updated: 2021/12/09 15:54:35 by tnard            ###   ########lyon.fr    #
+#    Updated: 2021/12/10 21:30:47 by tnard            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,6 @@ $(NAME): $(OBJECTS_PREFIXED) mlx
 all: $(NAME)
 
 mlx:
-	@printf "\033[2K\r"
 	@make -C mlbx
 
 clean:

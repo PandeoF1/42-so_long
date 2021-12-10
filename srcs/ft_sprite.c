@@ -12,12 +12,12 @@
 
 #include "../includes/so_long.h"
 
-static int	ft_moov_enemies_min(t_so_long **game, int x, int y)
+static int	ft_moov_enemies_min(t_so_long **game, int x, int y, int anim)
 {
 	int	a;
 
 	if ((*game)->str[y][x + 1] == 'P' || (*game)->str[y][x - 1] == 'P')
-		ft_printf("t'es mort mdr\n", mlx_loop_end((*game)->mlx));
+		mlx_loop_end((*game)->mlx);
 	mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
 		(*game)->background, (x) * (*game)->mult, y * (*game)->mult);
 	if ((*game)->str[y][x + 1] == '0')
@@ -25,7 +25,7 @@ static int	ft_moov_enemies_min(t_so_long **game, int x, int y)
 		(*game)->str[y][x] = '0';
 		(*game)->str[y][x + 1] = 'N';
 		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
-			(*game)->enemies[0], (x + 1) * (*game)->mult, y * (*game)->mult);
+			(*game)->enemies[anim], (x + 1) * (*game)->mult, y * (*game)->mult);
 		return (1);
 	}
 	else
@@ -36,7 +36,7 @@ static int	ft_moov_enemies_min(t_so_long **game, int x, int y)
 			a++;
 		(*game)->str[y][a] = 'N';
 		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
-			(*game)->enemies[0], (a) * (*game)->mult, y * (*game)->mult);
+			(*game)->enemies[anim], (a) * (*game)->mult, y * (*game)->mult);
 	}
 	return (0);
 }
@@ -52,7 +52,7 @@ static void	ft_moov_enemies(t_so_long **game)
 		x = -1;
 		while (++x < (*game)->max_x)
 			if ((*game)->str[y][x] == 'N')
-				x += ft_moov_enemies_min(&(*game), x, y);
+				x += ft_moov_enemies_min(&(*game), x, y, (*game)->anim_enemies);
 		y++;
 	}
 }
@@ -124,6 +124,7 @@ int	ft_sprite(t_so_long **game)
 	{
 		(*game)->anim_count = 1;
 		ft_anim(&(*game));
+		ft_push_img(&(*game), 0, 0);
 	}
 	if ((*game)->enemies_count == 100000)
 	{
