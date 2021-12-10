@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 17:39:52 by tnard             #+#    #+#             */
-/*   Updated: 2021/12/10 22:02:43 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/12/10 22:05:25 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ static int	ft_push_map(t_so_long **game)
 		}
 		y++;
 	}
+	return (1);
 	return (ft_check_map(&(*game), 0, 0));
 }
 
