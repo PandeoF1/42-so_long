@@ -124,7 +124,7 @@ int	ft_sprite(t_so_long **game)
 	{
 		(*game)->anim_count = 1;
 		ft_anim(&(*game));
-		ft_push_img(&(*game), 0, 0);
+		//ft_push_img(&(*game), 0, 0);
 	}
 	if ((*game)->enemies_count == 100000)
 	{
