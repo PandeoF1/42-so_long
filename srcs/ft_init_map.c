@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 17:39:52 by tnard             #+#    #+#             */
-/*   Updated: 2021/12/10 22:01:40 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/12/10 22:02:43 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,12 @@ int	ft_push_img(t_so_long **game, int x, int y)
 		ft_push_img_min(&(*game), x, y);
 	return (1);
 }
-//10EPCN
+
 static int	ft_check_map(t_so_long **game, int x, int y)
 {
 
-	char	charset[3]
+	char	charset[3];
 
-	y = 0;
 	while (y < 3)
 		charset[y++] = 0;
 	y = -1;
