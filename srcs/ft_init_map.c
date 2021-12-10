@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 17:39:52 by tnard             #+#    #+#             */
-/*   Updated: 2021/12/10 22:31:48 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/12/10 22:33:44 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_push_img(t_so_long **game, int x, int y)
 	{
 		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
 			(*game)->player[0], x * (*game)->mult, y * (*game)->mult);
-		if ((*game)->player_x != 0 || (*game)->player_y != 0)
+		if ((*game)->player_x != 0 && (*game)->player_y != 0)
 			return (0);
 		(*game)->player_x = x;
 		(*game)->player_y = y;
