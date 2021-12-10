@@ -65,6 +65,5 @@ int	ft_init_while(t_so_long **game, t_map_check **check)
 			return (0);
 		(*check)->y++;
 	}
-	ft_printf("gg?\n");
 	return (1);
 }
