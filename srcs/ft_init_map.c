@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 17:39:52 by tnard             #+#    #+#             */
-/*   Updated: 2021/12/10 22:29:07 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/12/10 22:31:48 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ static int	ft_push_map(t_so_long **game)
 	int	y;
 
 	y = 0;
+	(*game)->player_y = 0;
+	(*game)->player_x = 0;
 	(*game)->coin_count = 0;
 	(*game)->mlx = mlx_init();
 	(*game)->mlx_win = mlx_new_window((*game)->mlx,
@@ -102,7 +104,6 @@ static int	ft_push_map(t_so_long **game)
 		}
 		y++;
 	}
-	ft_printf("gg?\n");
 	return (ft_check_map(&(*game), 0, 0));
 }
 
