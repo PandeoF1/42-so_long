@@ -6,13 +6,13 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 17:47:35 by tnard             #+#    #+#             */
-/*   Updated: 2021/12/10 21:57:41 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/12/07 13:44:00 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-static int	ft_int_len(int x)
+int	ft_int_len(int x)
 {
 	int	y;
 
@@ -26,7 +26,7 @@ static int	ft_int_len(int x)
 	return (y);
 }
 
-static void	ft_print_moov(t_so_long **game, int x, int y)
+void	ft_print_moov(t_so_long **game, int x, int y)
 {
 	if (x > 9)
 		ft_print_moov(&(*game), x / 10, y - 1);
@@ -40,8 +40,8 @@ static void	ft_moov(t_so_long **game, int y, int x)
 		(*game)->background, ((*game)->player_x) * (*game)->mult,
 		((*game)->player_y) * (*game)->mult);
 	mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
-		(*game)->player[(*game)->anim_player], ((*game)->player_x + x) *
-			(*game)->mult, ((*game)->player_y + y) * (*game)->mult);
+		(*game)->player[(*game)->anim_player], ((*game)->player_x + x)
+		* (*game)->mult, ((*game)->player_y + y) * (*game)->mult);
 	(*game)->str[(*game)->player_y + y][(*game)->player_x + x] = 'P';
 	(*game)->str[(*game)->player_y][(*game)->player_x] = '0';
 	(*game)->player_y += y;
@@ -49,7 +49,7 @@ static void	ft_moov(t_so_long **game, int y, int x)
 	(*game)->player_mouv++;
 	ft_print_moov(&(*game), (*game)->player_mouv,
 		ft_int_len((*game)->player_mouv));
-	ft_printf("\033[2K\r%i\e[0m", (*game)->player_mouv);
+	ft_printf("\033[2K\r\033[0;32m%i\e[0m", (*game)->player_mouv);
 }
 
 static void	ft_go(t_so_long **game, int y, int x)
@@ -64,9 +64,10 @@ static void	ft_go(t_so_long **game, int y, int x)
 	else if ((*game)->str[(*game)->player_y + y][(*game)->player_x + x] == 'E')
 	{
 		if ((*game)->coin_count == 0)
-			return (void)mlx_loop_end((*game)->mlx);
+			return ((void)mlx_loop_end((*game)->mlx));
 		else
-			ft_printf("\033[2K\rIl te manque %i piece(s)\e[0m", (*game)->coin_count);
+			ft_printf("\033[2K\r\033[0;32mIl te manque %i piece(s)\e[0m",
+				(*game)->coin_count);
 	}
 	else if ((*game)->str[(*game)->player_y + y][(*game)->player_x + x] == 'N')
 		mlx_loop_end((*game)->mlx);

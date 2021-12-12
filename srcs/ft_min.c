@@ -15,8 +15,8 @@
 void	*ft_open_xpm(t_so_long **game, char *str)
 {
 	return (mlx_xpm_file_to_image(
-			(*game)->mlx, str, &(*game)->max_x,
-			&(*game)->max_x));
+			(*game)->mlx, str, &(*game)->picture_size,
+			&(*game)->picture_size));
 }
 
 int	ft_check_in(char str, char *charset)
@@ -42,11 +42,11 @@ int	ft_check_in(char str, char *charset)
 
 int	ft_init_while(t_so_long **game, t_map_check **check)
 {
-	while ((*check)->y < (*check)->max_y)
+	while (++(*check)->y < (*check)->max_y)
 	{
-		(*check)->x = 0;
+		(*check)->x = -1;
 		(*check)->count_x = 0;
-		while ((*check)->x < (*check)->max_x
+		while (++(*check)->x < (*check)->max_x
 			&& ft_check_in((*game)->str[(*check)->y][(*check)->x], "10EPCN"))
 		{
 			if ((*game)->str[(*check)->y][0] != '1' ||
@@ -55,7 +55,6 @@ int	ft_init_while(t_so_long **game, t_map_check **check)
 			if (((*check)->y == 0 || (*check)->y == (*check)->max_y - 1)
 				&& (*game)->str[(*check)->y][(*check)->x] == '1')
 				(*check)->count_x++;
-			(*check)->x++;
 		}
 		if (((*check)->y == 0 || (*check)->y == (*check)->max_y - 1)
 			&& ((*check)->x != (*check)->count_x
@@ -63,7 +62,6 @@ int	ft_init_while(t_so_long **game, t_map_check **check)
 			return (0);
 		if ((*check)->x != (*check)->max_x)
 			return (0);
-		(*check)->y++;
 	}
 	return (1);
 }

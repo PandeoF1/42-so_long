@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 02:38:07 by tnard             #+#    #+#             */
-/*   Updated: 2021/12/10 22:06:24 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/12/10 15:05:36 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define SO_LONG_H
 
 # include "../mlbx/mlx.h"
+# include "../libft/libft.h"
+# include "../ft_printf/ft_printf.h"
 # include <stdio.h>
 # include <fcntl.h>
 # include <stdlib.h>
@@ -39,6 +41,7 @@ typedef struct so_long
 	int		max_y;
 	int		player_x;
 	int		player_y;
+	int		picture_size;
 	int		coin_count;
 	int		player_mouv;
 	int		anim_count;
@@ -66,11 +69,7 @@ typedef struct map_check
 	int		y;
 }				t_map_check;
 
-char			*ft_strrchr(const char *s, int c);
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
-int				ft_strcmp(char *s1, char *s2);
-int				ft_strlen(char *str);
-
+int				ft_strcmp(char	*s1, char	*s2);
 int				ft_check_file(char *path);
 int				ft_win_event(int keycode, t_so_long **game);
 int				ft_close(t_so_long **game, int x);
@@ -82,14 +81,9 @@ int				ft_sprite(t_so_long **game);
 void			*ft_open_xpm(t_so_long **game, char *str);
 int				ft_init_while(t_so_long **game, t_map_check **check);
 void			ft_init_xpm(t_so_long **game);
-int				ft_push_img(t_so_long **game, int x, int y);
+void			ft_reload(t_so_long **game);
+void			ft_print_moov(t_so_long **game, int x, int y);
+int				ft_int_len(int x);
 
-int				ft_printf(const char *str, ...);
-int				ft_putnbr_base(unsigned int nbr, char *base);
-int				ft_putnbr(int n);
-int				ft_putstr(char *s);
-int				ft_putchar(char c);
-int				ft_putmemory(unsigned long long *t, char *table);
-unsigned int	ft_putnbr_u(unsigned int n);
 
 #endif
