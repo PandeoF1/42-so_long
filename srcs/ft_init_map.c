@@ -24,6 +24,7 @@ static void	ft_push_img_min(t_so_long **game, int x, int y)
 
 int	ft_push_img(t_so_long **game, int x, int y)
 {
+	ft_printf("je passe sur : %c\n", (*game)->str[y][x]);
 	if ((*game)->str[y][x] == '1')
 		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
 			(*game)->border, x * (*game)->mult, y * (*game)->mult);
@@ -34,10 +35,8 @@ int	ft_push_img(t_so_long **game, int x, int y)
 	{
 		mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
 			(*game)->player[0], x * (*game)->mult, y * (*game)->mult);
-		printf("test1 : %c\n", (*game)->str[y][x]);
-		if ((*game)->player_x != 0 && (*game)->player_y != 0)
-			return (0);
-		printf("test2\n");
+		//if ((*game)->player_x != 0 && (*game)->player_y != 0)
+		//	return (0);
 		(*game)->player_x = x;
 		(*game)->player_y = y;
 	}
@@ -59,11 +58,11 @@ static int	ft_check_map(t_so_long **game, int x, int y)
 
 	while (y < 3)
 		charset[y++] = 0;
-	y = -1;
-	while ((*game)->str[++y])
+	y = 0;
+	while ((*game)->str[y])
 	{
-		x = -1;
-		while ((*game)->str[y][++x])
+		x = 0;
+		while ((*game)->str[y][x])
 		{
 			if ((*game)->str[y][x] == 'E')
 				charset[1]++;
@@ -73,7 +72,9 @@ static int	ft_check_map(t_so_long **game, int x, int y)
 				charset[3]++;
 			else if ((*game)->str[y][x] == 'N')
 				charset[4]++;
+			x++;
 		}
+		y++;
 	}
 	if (charset[1] == 0 || charset[2] != 1
 			|| charset[3] == 0 || charset[4] == 1)
@@ -106,6 +107,7 @@ static int	ft_push_map(t_so_long **game)
 		}
 		y++;
 	}
+	return (0);
 	return (ft_check_map(&(*game), 0, 0));
 }
 

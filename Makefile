@@ -23,7 +23,7 @@ OBJS_DIR	= objs/
 OBJS		= $(SRCS:.c=.o)
 OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
 CC			= gcc
-CC_FLAGS	= -Wall -Werror -Wextra
+CC_FLAGS	= #-Wall -Werror -Wextra
 MLB_FLAGS	= -I -g -L /usr/X11/lib -Lincludes -L./mlbx -lmlx -Imlx -lXext -lX11 -lz -lm
 
 $(OBJS_DIR)%.o : %.c includes/so_long.h

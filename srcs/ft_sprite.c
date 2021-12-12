@@ -123,13 +123,13 @@ int	ft_sprite(t_so_long **game)
 	else if ((*game)->anim_count == 15000)
 	{
 		(*game)->anim_count = 1;
-		ft_anim(&(*game));
+		//ft_anim(&(*game));
 		//ft_push_img(&(*game), 0, 0);
 	}
 	if ((*game)->enemies_count == 100000)
 	{
 		(*game)->enemies_count = 0;
-		ft_moov_enemies(&(*game));
+		//ft_moov_enemies(&(*game));
 	}
 	return (0);
 }
