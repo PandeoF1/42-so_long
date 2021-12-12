@@ -52,16 +52,15 @@ static int	ft_push_img(t_so_long **game, int x, int y)
 
 static int	ft_check_map(t_so_long **game, int x, int y)
 {
-
 	char	charset[4];
 
 	while (y <= 4)
 		charset[y++] = 0;
-	y = 0;
-	while ((*game)->str[y])
+	y = -1;
+	while ((*game)->str[++y])
 	{
-		x = 0;
-		while ((*game)->str[y][x])
+		x = -1;
+		while ((*game)->str[y][++x])
 		{
 			if ((*game)->str[y][x] == 'E')
 				charset[0]++;
@@ -71,12 +70,10 @@ static int	ft_check_map(t_so_long **game, int x, int y)
 				charset[2]++;
 			else if ((*game)->str[y][x] == 'N')
 				charset[3]++;
-			x++;
 		}
-		y++;
 	}
 	if (charset[0] == 0 || charset[1] != 1
-			|| charset[2] == 0 || charset[3] == 1)
+		|| charset[2] == 0 || charset[3] == 1)
 		return (0);
 	return (1);
 }

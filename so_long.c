@@ -12,7 +12,7 @@
 
 #include "includes/so_long.h"
 
-static int	ft_usage()
+static int	ft_usage(void)
 {
 	ft_printf("\033[0;31mError\nusage: ./so_long [map.ber]\e[0m\n");
 	return (0);

@@ -85,5 +85,4 @@ void			ft_reload(t_so_long **game);
 void			ft_print_moov(t_so_long **game, int x, int y);
 int				ft_int_len(int x);
 
-
 #endif

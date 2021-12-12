@@ -23,7 +23,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize)
 		len++;
 	if (dstsize > 0)
 	{
-		while (src[i] && (i < (dstsize - 1))) // ! potential segfault inver condition
+		while (src[i] && (i < (dstsize - 1)))
 		{
 			dest[i] = src[i];
 			i++;

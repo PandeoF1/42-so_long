@@ -25,7 +25,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t dstsize)
 	while (dest[destlen])
 		destlen++;
 	i = 0;
-	while (src[i] && destlen + i < (dstsize - 1)) // ! potential segfault inver condition
+	while (src[i] && destlen + i < (dstsize - 1))
 	{
 		dest[i + destlen] = src[i];
 		i++;
