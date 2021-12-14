@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 17:39:52 by tnard             #+#    #+#             */
-/*   Updated: 2021/12/14 10:31:24 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/12/14 11:08:27 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ static int	ft_push_img(t_so_long **game, int x, int y)
 
 static int	ft_check_map(t_so_long **game, int x, int y)
 {
-	char	charset[5];
+	char	charset[4];
 
-	while (y <= 4)
+	while (y <= 3)
 		charset[y++] = 0;
 	y = -1;
 	while ((*game)->str[++y])
@@ -68,12 +68,10 @@ static int	ft_check_map(t_so_long **game, int x, int y)
 				charset[1]++;
 			else if ((*game)->str[y][x] == 'C')
 				charset[2]++;
-			else if ((*game)->str[y][x] == 'N')
-				charset[3]++;
 		}
 	}
 	if (charset[0] == 0 || charset[1] != 1
-		|| charset[2] == 0 || charset[3] == 1)
+		|| charset[2] == 0)
 		return (0);
 	return (1);
 }

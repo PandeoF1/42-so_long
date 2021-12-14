@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 17:49:08 by tnard             #+#    #+#             */
-/*   Updated: 2021/12/08 11:05:54 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/12/14 11:55:13 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	ft_exit_hook(t_so_long **game)
 {
 	mlx_loop_end((*game)->mlx);
-	ft_printf("close\n");
 	return (0);
 }
 
