@@ -29,6 +29,9 @@ void	ft_reload(t_so_long **game)
 			else if ((*game)->str[y][x] == '0')
 				mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
 					(*game)->background, x * (*game)->mult, y * (*game)->mult);
+			else if ((*game)->str[y][x] == 'E')
+				mlx_put_image_to_window((*game)->mlx, (*game)->mlx_win,
+					(*game)->exit, x * (*game)->mult, y * (*game)->mult);
 			x++;
 		}
 		y++;

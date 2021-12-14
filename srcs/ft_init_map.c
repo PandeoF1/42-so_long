@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 17:39:52 by tnard             #+#    #+#             */
-/*   Updated: 2021/12/07 11:46:17 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2021/12/14 10:31:24 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static int	ft_push_img(t_so_long **game, int x, int y)
 
 static int	ft_check_map(t_so_long **game, int x, int y)
 {
-	char	charset[4];
+	char	charset[5];
 
 	while (y <= 4)
 		charset[y++] = 0;

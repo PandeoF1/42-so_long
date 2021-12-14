@@ -6,7 +6,7 @@
 #    By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/09 13:04:45 by tnard             #+#    #+#              #
-#    Updated: 2021/12/09 15:54:35 by tnard            ###   ########lyon.fr    #
+#    Updated: 2021/12/14 10:40:11 by tnard            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ $(OBJS_DIR)%.o : %.c includes/so_long.h
 
 $(NAME): $(OBJECTS_PREFIXED) maker
 	@$(CC) -o $(NAME) $(OBJECTS_PREFIXED) $(CC_FLAGS) $(MLB_FLAGS)
-	@echo "\033[0;32m[END]\033[0m $(NAME)"
+	@printf "\033[2K\r\033[0;32m[END]\033[0m $(NAME)$(END)\n"
 
 all: $(NAME)
 
