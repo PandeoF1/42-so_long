@@ -1,5 +1,5 @@
 <h1 align="center">
-	42 - push_swap
+	42 - so_long
 </h1>
 
 <p align="center">
