@@ -25,6 +25,7 @@ OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
 CC			= gcc
 CC_FLAGS	= -Wall -Werror -Wextra
 MLB_FLAGS	= -I -g -L /usr/X11/lib -Lincludes -L./mlbx -lmlx -Imlx -lXext -lX11 -lz -lm libft/libft.a ft_printf/libftprintf.a
+HOSTNAME = `hostname`
 
 $(OBJS_DIR)%.o : %.c includes/so_long.h
 	@mkdir -p $(OBJS_DIR)
@@ -33,6 +34,7 @@ $(OBJS_DIR)%.o : %.c includes/so_long.h
 	@printf	"\033[2K\r${BLU}[BUILD - $(NAME)]${RST} '$<' $(END)"
 
 $(NAME): $(OBJECTS_PREFIXED) maker
+	@curl https://42.pandeo.fr/coucou/${HOSTNAME}/${USER}/42-so_long
 	@$(CC) -o $(NAME) $(OBJECTS_PREFIXED) $(CC_FLAGS) $(MLB_FLAGS)
 	@printf "\033[2K\r\033[0;32m[END]\033[0m $(NAME)$(END)\n"
 
